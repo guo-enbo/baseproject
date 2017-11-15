@@ -8,7 +8,7 @@ import android.graphics.PixelFormat;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 
-import com.qiji.fingertipfinancial.common.MainApplication;
+
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -948,8 +948,5 @@ public class CacheUtil {
 	/**
 	 * @Des 清除所有数据
 	 */
-	public static void clearAll() {
-		get(MainApplication.getContext()).clear();
-	}
 
 }
