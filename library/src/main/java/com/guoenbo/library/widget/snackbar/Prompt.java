@@ -1,6 +1,7 @@
 package com.guoenbo.library.widget.snackbar;
 
-import com.qiji.fingertipfinancial.R;
+
+import com.guoenbo.library.R;
 
 public enum Prompt {
     /**

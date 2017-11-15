@@ -53,12 +53,13 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.qiji.fingertipfinancial.R;
+
+import com.guoenbo.library.R;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-import static com.qiji.fingertipfinancial.widget.snackbar.AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR;
+import static com.guoenbo.library.widget.snackbar.AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR;
 
 
 /**
