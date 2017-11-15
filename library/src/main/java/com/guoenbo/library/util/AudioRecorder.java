@@ -167,7 +167,7 @@ public class AudioRecorder {
 			}
 		}
 		if(tag){
-			ToastUtil.getInstance().Short("当前语音消息已过期");
+
 		}
 	}
 	
