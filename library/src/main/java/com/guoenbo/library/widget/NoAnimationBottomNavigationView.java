@@ -24,7 +24,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.qiji.fingertipfinancial.R;
+
+import com.guoenbo.library.R;
 
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;

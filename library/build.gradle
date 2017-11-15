@@ -34,6 +34,8 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:recyclerview-v7:25.4.0'
     compile 'com.android.support:design:25.4.0'
+    compile 'com.google.code.gson:gson:2.7'
     compile files('libs/umeng-analytics-v6.1.2.jar')
     compile files('libs/utdid4all-1.1.5.3_proguard.jar')
+    implementation files('libs/mp3recorder.jar')
 }

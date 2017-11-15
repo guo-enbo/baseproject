@@ -4,7 +4,8 @@ import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
 
 import com.czt.mp3recorder.MP3Recorder;
-import com.qiji.fingertipfinancial.common.Constants;
+import com.guoenbo.library.common.Constants;
+
 
 import java.io.File;
 import java.io.IOException;

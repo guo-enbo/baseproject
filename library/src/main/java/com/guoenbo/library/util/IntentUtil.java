@@ -5,7 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.qiji.fingertipfinancial.R;
+import com.guoenbo.library.R;
+
 
 /**
  * Created by guoenbo on 2017/7/6.
