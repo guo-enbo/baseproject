@@ -411,7 +411,7 @@ public class AndroidUtil {
 				context.startActivity(intent);
 			}
 		} catch (PackageManager.NameNotFoundException e) {
-			ToastUtil.getInstance().Short("未安装该应用");
+
 		}
 	}
 
