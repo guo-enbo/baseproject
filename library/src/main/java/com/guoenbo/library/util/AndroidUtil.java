@@ -38,6 +38,8 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 
+import com.guoenbo.library.bean.FilePhotoBean;
+import com.guoenbo.library.common.MainApplication;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -161,7 +163,25 @@ public class AndroidUtil {
 		// textView.setText();
 	}
 
+	/**
+	 * DIP -> PX 转换
+	 * @param dipValue
+	 * @return
+	 */
+	public static int dip2px(float dipValue) {
+		final float scale = MainApplication.getContext().getResources().getDisplayMetrics().density;
+		return (int) (dipValue * scale + 0.5f);
+	}
 
+	/**
+	 * PX -> DIP 转换
+	 * @param pxValue
+	 * @return
+	 */
+	public static int px2dip(float pxValue) {
+		final float scale = MainApplication.getContext().getResources().getDisplayMetrics().density;
+		return (int) (pxValue / scale + 0.5f);
+	}
 
 	public static Drawable getRoundedBitmap(Context context, float radius, int ResId){
 		Bitmap mBitmap = BitmapFactory.decodeResource(context.getResources(), ResId);
@@ -280,7 +300,43 @@ public class AndroidUtil {
 		return bitmap;
 	}
 
+	/**
+	 * 获取系统所有的照片
+	 */
+	public static HashMap<String, ArrayList<FilePhotoBean>> listAlldir(Context context){
+		Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+		Uri uri = intent.getData();
+		HashMap<String, ArrayList<FilePhotoBean>> map=new HashMap<String, ArrayList<FilePhotoBean>>();
+		String[] proj ={MediaStore.Images.Media.DATA, MediaStore.Images.Media.BUCKET_DISPLAY_NAME, MediaStore.Images.Media._ID};
+		Cursor cursor = context.getContentResolver().query(uri, proj, null, null, null);
+		while(cursor.moveToNext()){
+			String path = cursor.getString(0);
+			String fileName = cursor.getString(1);
+			String id = cursor.getString(2);
+			if(map.containsKey(fileName)) {//如果文件夹存在
+				if(map.get(fileName)!=null) {
+					FilePhotoBean bean = new FilePhotoBean();
+					bean.setName(fileName);
+					bean.setPath(path);
+					bean.setId(id);
+					map.get(fileName).add(bean);
+				}
+			} else {
+				int index=path.lastIndexOf("gif");
+				if(index == -1) {
+					ArrayList<FilePhotoBean> list = new ArrayList<FilePhotoBean>();
+					FilePhotoBean bean = new FilePhotoBean();
+					bean.setName(fileName);
+					bean.setPath(path);
+					bean.setId(id);
+					list.add(bean);
+					map.put(fileName, list);
+				}
+			}
+		}
 
+		return map;
+	}
 
 	/**
 	 *判断当前应用程序处于前台还是后台
@@ -411,7 +467,7 @@ public class AndroidUtil {
 				context.startActivity(intent);
 			}
 		} catch (PackageManager.NameNotFoundException e) {
-
+			ToastUtil.getInstance().Short("未安装该应用");
 		}
 	}
 
