@@ -39,7 +39,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         // MobclickAgent.startWithConfigure(
         // new UMAnalyticsConfig(mContext, "4f83c5d852701564c0000011", "Umeng",
         // EScenarioType.E_UM_NORMAL));
-        MobclickAgent.setScenarioType(_context, MobclickAgent.EScenarioType.E_UM_NORMAL);
+        MobclickAgent.setScenarioType(this, MobclickAgent.EScenarioType.E_UM_NORMAL);
     }
 
     /**
@@ -118,14 +118,14 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        MobclickAgent.onPageStart(AndroidUtil.getActOrFragName(_context));
+        MobclickAgent.onPageStart(AndroidUtil.getActOrFragName(this));
         MobclickAgent.onResume(this);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        MobclickAgent.onPageEnd(AndroidUtil.getActOrFragName(_context));
+        MobclickAgent.onPageEnd(AndroidUtil.getActOrFragName(this));
         MobclickAgent.onPause(this);
     }
 }
