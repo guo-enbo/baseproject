@@ -118,14 +118,14 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        MobclickAgent.onPageStart(AndroidUtil.getActOrFragName(this));
+        MobclickAgent.onPageStart(AndroidUtil.getActOrFragName(_context));
         MobclickAgent.onResume(this);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        MobclickAgent.onPageEnd(AndroidUtil.getActOrFragName(this));
+        MobclickAgent.onPageEnd(AndroidUtil.getActOrFragName(_context));
         MobclickAgent.onPause(this);
     }
 }
